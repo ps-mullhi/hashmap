@@ -27,19 +27,22 @@ class HashMap
     if list.contains?(key)
       index = list.find(key)
       node = list.at(index)
-      index.value = value
+      node.value = value
     else
       list.append(key, value)
     end
 
-    
-    # TODO: REMEMBER TO DO THE LOAD FACTOR INCREASE IN THIS METHOD LATER ON
-    #
-    #
-    #
-    #
-    #
-    #
+    if self.length > @load_factor * @capacity
+      grow_buckets
+    end
+  end
+
+  def grow_buckets
+    @capacity *= 2
+    entries = self.entries
+    @hash_map = Array.new(@capacity) {LinkedList.new}
+
+    entries.each {|entry| self.set(entry[0], entry[1])}
   end
 
   def get(key)
