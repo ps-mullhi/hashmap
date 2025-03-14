@@ -100,6 +100,13 @@ class HashMap
 
     values
   end
+
+  def entries
+    keys = self.keys
+    values = self.values
+
+    keys.zip(values)
+  end
  
   def to_s
     @hash_map.each_with_index {|list, i| puts "#{i}: #{list}"}
