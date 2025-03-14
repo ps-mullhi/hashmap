@@ -175,6 +175,23 @@ class LinkedList
     end
   end
 
+  def all_keys
+    if @list.nil?
+      return []
+    end
+
+    keys = Array.new
+
+    current_node = @list
+    keys.push(current_node.key)
+    until current_node.next_node.nil?
+      current_node = current_node.next_node
+      keys.push(current_node.key)
+    end
+
+    keys
+  end 
+
   def to_s
     if @list.nil?
       return 'nil'

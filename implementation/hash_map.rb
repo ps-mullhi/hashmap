@@ -80,6 +80,16 @@ class HashMap
   def clear
     @hash_map = Array.new(@capacity) {LinkedList.new}
   end
+
+  def keys
+    keys = Array.new
+
+    @hash_map.each do |list|
+      keys += list.all_keys
+    end
+
+    keys
+  end
  
   def to_s
     @hash_map.each_with_index {|list, i| puts "#{i}: #{list}"}
