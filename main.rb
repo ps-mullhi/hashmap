@@ -39,10 +39,17 @@ puts test.has?('apple')
 puts test.has?('jacket')
 puts test.has?('does not exist')
 
+puts test.length
+
 test.remove('apple')
 p test.remove('fjdaf')
 test.remove('grape')
 test.remove('lion')
 
 puts test
+puts test.length
+
+test.clear 
+puts test
+
 

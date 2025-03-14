@@ -6,7 +6,7 @@ class HashMap
   def initialize(load_factor, capacity)
     @load_factor = load_factor
     @capacity = capacity
-    @hash_map = Array.new(16) {LinkedList.new}
+    @hash_map = Array.new(capacity) {LinkedList.new}
   end
 
   # function from https://www.theodinproject.com/lessons/ruby-hashmap
@@ -67,6 +67,18 @@ class HashMap
     list = get_bucket_list(key)
     index = list.find(key)
     list.remove_at(index)
+  end
+
+  def length
+    count = 0
+
+    @hash_map.each {|list| count += list.size}
+
+    count
+  end
+
+  def clear
+    @hash_map = Array.new(@capacity) {LinkedList.new}
   end
  
   def to_s
