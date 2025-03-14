@@ -90,6 +90,16 @@ class HashMap
 
     keys
   end
+
+  def values
+    values = Array.new
+
+    @hash_map.each do |list|
+      values += list.all_values
+    end
+
+    values
+  end
  
   def to_s
     @hash_map.each_with_index {|list, i| puts "#{i}: #{list}"}

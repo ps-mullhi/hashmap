@@ -41,6 +41,7 @@ puts test.has?('does not exist')
 
 puts test.length
 p test.keys
+p test.values
 
 test.remove('apple')
 p test.remove('fjdaf')
@@ -50,6 +51,7 @@ test.remove('lion')
 puts test
 puts test.length
 p test.keys
+p test.values
 
 test.clear 
 puts test
